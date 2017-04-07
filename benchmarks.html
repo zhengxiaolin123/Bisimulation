@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>Bisimulation</title>
+<link type="text/css" rel="stylesheet" href="styles/reset.css">
+	<link type="text/css" rel="stylesheet" href="styles/main.css">
+		<meta name="keywords" content="start" />
+		<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript" src="js/ie6Fixpng.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+	<div id="upbg"></div>
+
+
+	<div class="upper">
+
+
+		<div id="header">
+			<div id="headercontent">
+				<h1>Bisimulation</h1>
+				<h2>Bisimulation is a binary relation between state transition
+					systems, associating systems that behave in the same way in the
+					sense that one system simulates the other and vice versa.</h2>
+			</div>
+	
+
+		</div>
+
+
+		<div id="headerpic"></div>
+
+		<div id="menu">
+			<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+			<ul>
+
+				<li><a href="index.html" class="active" target="_self">Home</a></li>
+				<li><a href="tools.html" target="_self"> Tools</a></li>
+				<li><a href="reference.html" target="_self">Reference</a></li>
+				<li><a href="benchmarks.html" target="_self">Benchmarks</a></li>
+
+			</ul>
+
+
+		</div>
+		<div id="menubottom"></div>
+
+	</div>
+    <div class="dokuwiki">
+		<div id="content">
+        <div class="breadcrumbs">
+
+						<span class="bchead">Trace:</span> <a href="#what">What is the
+							VLTS benchmark suite</a> <span class="bcsep">•</span> <a
+							href="#why">Why the VLTS benchmark suite</a><span class="bcsep">•</span>
+						<a href="#how">How to use the VLTS benchmark suite</a>
+					</div>
+
+					<div class="divider1"></div>
+					<div id="normalcontent">
+						<div>
+							<h1 class="sectionedit1">
+								<a name="tools" id="tools">Benchmark</a>
+							</h1>
+							<div class="level1"></div>
+							<div class="level4">
+								<h3 class="sectionedit2">
+									<a name="what" id="cadp" href="http://cadp.inria.fr/">What is
+										the VLTS benchmark suite</a>
+								</h3>
+								<div class="level3">
+									<p>The VLTS acronym stands for "Very Large Transition Systems".</p>
+										<p>The VLTS benchmark suite is a collection of Labelled
+										Transition Systems (hereafter called benchmarks). Each
+										Labelled Transition System is a directed, connected graph,
+										whose vertices are called states and whose edges are called
+										transitions. There is one distinguished vertex called the
+										initial state. Each transition is labelled by a character
+										string called action or label. There is one distinguished
+										label noted "i" that is used for so-called invisible
+										transitions (also known as hidden transitions or
+										tau-transitions). </p>
+										<p>The VLTS benchmarks have been obtained from
+										various case studies about the modelling of communication
+										protocols and concurrent systems. Many of these case studies
+										correspond to real life, industrial systems.</p>
+								</div>
+								<h3 class="sectionedit3">
+									<a name="why" id="benchmarks"
+										href="http://cadp.inria.fr/resources/vlts/">Why the VLTS
+										benchmark suite</a>
+
+								</h3>
+								<div class="level3">
+									<p>
+										The VLTS benchmark suite is designed to be a reference
+										criterion for scientific assessment of algorithms and tools
+										operating on large graphs. In particular, this encompasses
+										algorithms and tools for explicit state verification of
+										concurrent systems, including:
+										<ul>
+											<li>model checkers,</li>
+											<li>equivalence checkers (comparison and minimization tools,
+												etc.),</li>
+											<li>graph visualization tools,</li>
+											<li>formats for representing transitions systems,</li>
+											<li>etc.</li>
+										</ul>
+										<p>Algorithms and tools operating on more general graphs than
+										transition systems may also benefit from the VLTS benchmark
+										suite by simply discarding label information attached to
+										transitions. The need for the VLTS benchmark suite was
+										recognized in several places, e.g., by Agostino Dovier, Carla
+										Piazza, and Alberto Policriti in their CAV'2001 paper ("A Fast
+										Bisimulation Algorithm"):<p>
+										  <p> <em>To the best of our knowledge
+											there is no `official' set of benchmarks for testing an
+											algorithm such as the one we propose in our paper. We decided
+											to test our implementation in the context of formal
+											verification using model checkers and considering the
+											transition graphs they generate from a given program [...].
+											Usually, the graphs generated consist of a unique strongly
+											connected component and the set of possible labels is huge. </em></p>
+
+                                      <p>
+										The VLTS benchmark suite intends to fill this gap by providing
+										a comprehensive set of benchmarks. We hope that it will be as
+										useful as other standard benchmarks, such as those developed,
+										e.g., to assess Binary Decision Diagrams packages.
+									</p>
+								</div>
+								<h3 class="sectionedit4">
+									<a name="how" id="bcg"
+										href="http://cadp.inria.fr/man/bcg.html">How to use the VLTS
+										benchmark suite</a>
+								</h3>
+								<div class="level3">
+									<p>All the graphs are encoded in the <em>BCG</em> (Binary-Coded Graphs)
+										format, then compressed using the bzip2 tool. To our
+										knowledge, this is up to now the most compact way for storing
+										Very Large Transition Systems.</p>
+										 <p>First, we should make sure
+										that us are working on a machine with enough free disk space
+										available (at least 500 megabytes, 1 gigabyte to be safe). You
+									    should have already the CADP tools installed on your
+										machine, registrate from <a href="http://cadp.inria.fr/registration/">CADP</a>. 
+										After downloading a graph,
+										say "graph.bcg.bz2", from the Table below, you must first
+										uncompress it using the bunzip2 tool:  <em> bunzip2</em>
+										graph.bcg.bz2 This will produce a BCG graph named "graph.bcg".
+										You can read and process "graph.bcg" from a computer program
+										in two different ways: You can use the bcg_read API
+										(Application Programming Interface), which provides a simple
+										set of functions for handling BCG graphs. You will have to
+										link your computer program against the BCG binary libraries.</p>
+
+										<p>
+										You can use the <em>bcg_io</em> tool, which converts BCG graphs into a
+										dozen of other formats (mostly textual formats). To avoid disk
+										space overflow, it is recommended to use this tool in pipe
+										mode, so that the converted graph is not written to disk. For
+										instance: <em>bcg_io graph.bcg -aldebaran - | more Note:</em>
+										In addition to the VLTS benchmarks, you might be interested by
+										the various classes of `regular' benchmarks produced by the
+										bcg_graph tool.</p>
+                                     </div>
+								</div>
+							</div>
+
+						</div>
+     
+         
+        </div>
+        
+        	<div id="footer">
+					<div class="left"></div>
+					<div class="right">
+						<div class="license">
+						   <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                             <a href="http://www.ecnu.edu.cn/" rel="license" class="urlextern">ECNU</a> reserves the right of final explanation and revision for the web.
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="no">
+				<img src="#" width="2" height="1" alt="" />
+			</div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>Bisimulation</title>
+<link type="text/css" rel="stylesheet" href="styles/reset.css">
+	<link type="text/css" rel="stylesheet" href="styles/main.css">
+		<meta name="keywords" content="start" />
+<script type="text/javascript">
+
+	function show(id){
+		if(id=="onthefly"){
+		document.getElementById("content").style.display="none";
+		document.getElementById("-onthefly").style.display="";
+		}
+		if(id=="quasilocal"){
+			document.getElementById("content").style.display="none";
+			document.getElementById("-quasilocal").style.display="";
+			
+			}
+		if(id=="ontheflyeg"){
+			document.getElementById("content").style.display="none";
+			document.getElementById("-ontheflyeg").style.display="";
+			}
+		if(id=="quasilocaleg"){
+			document.getElementById("content").style.display="none";
+			document.getElementById("-quasilocaleg").style.display="";
+			}
+		}
+
+//document.getElementById("div1").style.display="";
+//document.getElementById("div2").style.display="none";
+
+
+
+</script>
+
+</head>
+<body>
+
+	<div id="upbg"></div>
+
+
+	<div class="upper">
+
+
+		<div id="header">
+			<div id="headercontent">
+				<h1>Bisimulation</h1>
+				<h2>Bisimulation is a binary relation between state transition
+					systems, associating systems that behave in the same way in the
+					sense that one system simulates the other and vice versa.</h2>
+			</div>
+	    </div>
+
+
+		<div id="headerpic"></div>
+
+		<div id="menu">
+			<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+			<ul>
+
+				<li><a href="index.html" class="active" target="_self">Home</a></li>
+				<li><a href="tools.html" target="_self"> Tools</a></li>
+				<li><a href="reference.html" target="_self">Reference</a></li>
+				<li><a href="benchmarks.html" target="_self">Benchmarks</a></li>
+
+			</ul>
+
+
+		</div>
+		<div id="menubottom"></div>
+
+	</div>
+    <div class="dokuwiki">
+		<div id="content">
+
+	     <div class="breadcrumbs">
+
+				<span class="bchead">Trace:</span> <a href="#tiaozhuan_1"> Partition
+					Refinement - branching bisimulation</a> <span class="bcsep">•</span>
+				<a href="#tiaozhuan_2">Partition Refinement - strong bisimulation</a>
+				<span class="bcsep">•</span> <a href="#tiaozhuan_3">On the Fly</a> <span
+					class="bcsep">•</span> <a href="#tiaozhuan_4">Quasi-local</a>
+			</div>
+			<div class="divider1"></div>
+			<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+			<div id="normalcontent">
+
+
+				<h1 class="sectionedit1">
+					<a name="tiaozhuan_1" id="Partition_Refinement_branching_bisimulation">Partition
+						Refinement - branching bisimulation</a>
+				</h1>
+				<div class="level1">
+					<p class="textstyle">
+						&nbsp&nbsp&nbsp&nbspGW provide a new algorithm to determine
+						stuttering equivalence with time complexity O(mlog n), where n is
+						the number of states and m is the number of transitions of a
+						Kripke structure. This algorithm can also be used to determine
+						branching bisimulation in O(m(log|Act|+log n)) time where Act is
+						the set of actions in a labelled transition system.<br />
+						&nbsp&nbsp&nbsp&nbspTheoretically, this algorithm substantially
+						improves upon existing algorithms which all have time complexity
+						O(mn) at best. Moreover, it has better or equal space complexity.
+						Practical results confirm these findings showing that this
+						algorithm can outperform existing algorithms with orders of
+						magnitude, especially when the sizes of the Kripke structures are
+						large.<br /> &nbsp&nbsp&nbspThe importance of GW algorithm
+						stretches far beyond stuttering equivalence and branching
+						bisimulation. The known O(mn) algorithms were already far more
+						efficient (both in space and time) than most other algorithms to
+						determine behavioural equivalences (including weak bisimulation)
+						and therefore it was often used as an essential preprocessing
+						step. This new algorithm makes this use of stuttering equivalence
+						and branching bisimulation even more attractive.
+					</p>
+					<p class="textstyle">
+						Jan Friso Groote and Anton Wijs.<br /> Department of Mathematics
+						and Computer Science, Eindhoven University of Technology
+						<p>
+							.................................................................................................
+						</p>
+						<img src="./images/pdf.jpg"></img> <a
+							href="/lib/exe/fetch.php?media=quasi-local.pdf"
+							class="media mediafile mf_pdf" title="quasi-local.pdf">An O(mlog
+							n) Algorithm for Stuttering Equivalence and Branching
+							Bisimulation</a> <br /> <br />
+
+					</p>
+					<ul type='square'>
+						<li class="level1"><div class="li">
+								<strong><a href="/Bisimulation/ecnu/doku.php?id=ramseysimsub"
+									class="textstyle" " title="ramseysimsub">Example</a></strong>
+							</div></li>
+						<li class="level1"><div class="li">
+								<strong><a href="/doku.php?id=nfasimsub" class="textstyle"
+									title="nfasimsub">Experimental Data </a></strong>
+							</div></li>
+					</ul>
+					<h1 class="sectionedit1">
+						<a name="tiaozhuan_2"
+							id="Partition_Refinement_strong_bisimulation">Partition
+							Refinement - strong bisimulation</a>
+					</h1>
+					<div class="level1">
+						<p class="textstyle"> 
+                            &nbsp&nbsp&nbsp&nbspA new algorithm for
+							bisimilarity minimization of labelled directed graphs is
+							presented. Its time consumption is O(mlog n), where n is the
+							number of states and m is the number of transitions. Unlike
+							earlier algorithms, it meets this bound even if the number of
+							different labels of transitions is not fixed. It is based on
+							refining a partition of states with respect to the labelled
+							transitions. A splitter is a pair consisting of a label and a set
+							in the partition. A transition belongs to a splitter, if and only
+							if it has the same label and its end state is in the set. Earlier
+							algorithms consume lots of time in scanning splitters that have
+							no transitions. The new algorithm avoids this by maintaining also
+							a partition of transitions. To facilitate this, a refinable
+							partition data structure with amortized constant time operations
+							is used. Detailed pseudocode of all nontrivial details is
+							presented. Novel simplifications are applied that both reduce the
+							practical memory consumption and shorten the program code.</p>
+						<p class="textstyle">
+							Antti Valmari.<br /> Tampere University of Technology
+							<p>
+								.................................................................................................
+							</p>
+
+							<img src="./images/pdf.jpg"></img> <a
+								href="/lib/exe/fetch.php?media=quasi-local.pdf"
+								class="media mediafile mf_pdf" title="quasi-local.pdf">Bisimilarity
+								Minimization in O(mlog n) Time</a> <br /> <br />
+
+						</p>
+						<ul type='square'>
+							<li class="level1"><div class="li">
+									<strong><a href="/Bisimulation/ecnu/doku.php?id=ramseysimsub"
+										class="textstyle" " title="ramseysimsub">Details</a></strong>
+								</div></li>
+							<li class="level1"><div class="li">
+									<strong><a href="/doku.php?id=nfasimsub" class="textstyle"
+										title="nfasimsub">Experimental Data </a></strong>
+								</div></li>
+						</ul>
+						<h1 class="sectionedit1">
+							<a name="tiaozhuan_3" id="on_the_fly">On the Fly</a>
+						</h1>
+						<div class="level1">
+							<p class="textstyle">&nbsp&nbsp&nbsp&nbspA new algorithm does not
+								need to previously construct the two transition systems the
+								verification can be performed during their generation. The
+								algorithm analyze the pair of target states on LTS, combine the
+								checking of the bisimulation with generation of the system's
+								state space. To determine whether the initial states are
+								bisimilarity, the algorithm attempts to construct a relation
+								relating the states of the LTSs incrementally starting with the
+								pair of initial states. This algorithm generates the product
+								dynamically so it is also called "on-the-fly" verification
+								algorithm. In fact, the procedure of searching may have to
+								execute several times to get the answer.</p>
+							<p class="textstyle">
+								Jean-Claude
+								Fernandez.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLaurent
+								Mounier.<br /> LGI-IMAG BP 53X 38041 GRENOBLE Cedex
+
+
+
+							</p>
+
+							<p>................................................</p>
+
+							<p>
+								<img src="./images/pdf.jpg"></img> <a
+									href="http://www-verimag.imag.fr/PEOPLE/mounier/Papers/Fernandez-Mounier-90.pdf"
+									class="media mediafile mf_pdf" title="slides2014.pdf"
+									target="_blank">Verifying Bisimulations "On the Fly"</a>
+							</p>
+
+							<p></p>
+							<ul type="square">
+								<li class="level1"><div class="li">
+										<strong><a  href="#"  onClick="show('onthefly');"  id="onthefly" class="textstyle" title="onthefly">Details</a></strong>
+									</div></li>
+								<li class="level1"><div class="li">
+										<strong><a  href="#"  onClick="show('ontheflyeg');" class="textstyle" title="oed">Experimental Data </a></strong></div></li>
+							</ul>
+
+							<h1 class="sectionedit1">
+								<a id="tiaozhuan_4" id="quasi_local">Quasi-local</a>
+							</h1>
+							<div class="level1">
+
+								<p class="textstyle">
+									&nbsp&nbsp&nbsp&nbspDecision algorithms for bisimilarity in
+									finite state systems are usually classified into two
+									kinds:global algorithms are generally efficint but require to
+									generate the whole state spaces in advance,local algorithms
+									combine the verification of a system's behaviour with the
+									generate of the system's state space,which is often more
+									effective to determine that one system fails to be related to
+									another.<br /> &nbsp&nbsp&nbsp&nbspThe quasi-local algorithm
+									that checks if two LTSs are related by bisimilarity or
+									similarity whith the worst case time complexity O(m1m2),where
+									m1 and m2 are the numbers of transitions of the two LTSs.In the
+									particular case of verifying bisimilarity or similarity on
+									deterministic LTSs,the algorithm can be simplified and only
+									takes time O(min(m1,m2)). We have implemented our algorithm and
+									tested it in a few simple examples like the jobshop and the
+									alternating-bit protcol where good performance of the algorithm
+									is boserved. In the example of alternating-bit protocol we show
+									that an implementation of protocol is weak bisimilar to its
+									specification. In order to use our algorithm for checking weak
+									transitions;computing the weak transition is acheiced by a
+									transitive closure algorithm.
+								</p>
+								<p class="textstyle">
+									Yuxin Deng.&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+									&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+									Wenjie Du.<br /> Shanghai Normal University,China
+									&nbsp&nbsp&nbsp&nbsp Shanghai Normal University,China
+								</p>
+
+								<p>
+									.................................................................................................
+								</p>
+
+
+
+								<p>
+									<img src="./images/pdf.jpg"></img> <a
+										href="http://basics.sjtu.edu.cn/~yuxin/publications/checkbisi.pdf?origin=publication_detail"
+										class="media mediafile mf_pdf" title="quasi-local.pdf"
+										target="_blank">A Quasi-local Algorithm for Checking
+										Bisimilarity</a> <br /> <br />
+
+								</p>
+								<ul type='square'>
+									<li class="level1"><div class="li">
+											<strong><a  href="#"  onClick="show('quasilocal');"
+												class="textstyle" " title="quasilocal">Details</a></strong>
+										</div></li>
+									<li class="level1">
+                                        <div class="li">
+											<strong><a  href="#"  onClick="show('quasilocaleg');" class="textstyle"  title="qed">Experimental Data </a></strong>
+										</div>
+                                        </li>
+
+								</ul>
+
+							</div>
+							<br /> <br />
+						</div>
+
+					</div>
+					<div class="meta">
+						<div class="user"></div>
+						<div class="doc"></div>
+					</div>
+
+				</div>
+     	<div id="footer">
+					<div class="left"></div>
+					<div class="right">
+						<div class="license">
+						   <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                             <a href="http://www.ecnu.edu.cn/" rel="license" class="urlextern">ECNU</a> reserves the right of final explanation and revision for the web.
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="no">
+				<img src="#" width="2" height="1" alt="" />
+			</div>
+		</div>		
+
+<div id="-onthefly" style="display:none">
+ <p>
+					The local algorithm was first put forward by Fernandez and Mounier,
+					The algorithm need used DFS to traverse, check for the two
+					transition system initial state. Then based on it subsequent sates
+					extension of the LTS. This algorithm verified equivalence relation
+					while increasing to investigate, So named on the fly. This
+					algorithm has a feature that without explicitly constructing the
+					two graphs. This procedure is based on the exploration of all the
+					execution sequences of the product of the two labeled transition
+					system. We assumed that two labeled transition system S<sub>1</sub>
+					and S<sub>2</sub> by means of the product S<sub>1</sub> × S<sub>2</sub>.
+
+
+
+					<ul>
+						<li>If one of the two labeled transition system is deterministic,
+							then S<sub>1</sub> &sim; S<sub>2</sub> if and only if the state
+							fail does not belong to S<sub>1</sub> × S<sub>2</sub>.
+							<li>In the general case, S<sub>1</sub> &sim; S<sub>2</sub> if and
+								only if cannot find an execution sequence &sigma; of S<sub>1</sub>
+								× S<sub>2</sub> which contains the state $fail$ and which is
+								such that all the states (q<sub>1</sub>,q<sub>2</sub>) of
+								&sigma; verify q<sub>1</sub> &nsim; q<sub>2</sub>.
+					
+					</ul>
+					<p></p>
+					<p>
+						We assumed the state q_1 is belong to S<sub>1</sub> and the state
+						q<sub>2</sub> is belong to S<sub>2</sub>, and when they all can
+						perform a transition labeled by a, that we can make a state (q<sub>1</sub>,q<sub>2</sub>).
+						If and only if one of the two states (q<sub>1</sub> or q<sub>2</sub>)
+						can perform a transition labeled by a, then the product has a
+						transition form (q<sub>1</sub>,q<sub>2</sub>) to the sink state
+						noted fail. We need to build a couple ((p,q),l) in the algorithm,
+						where (p,q) is a state and l the list of its direct successors
+						which have not yet been encountered in the currently analyzed
+						execution sequence.
+					</p>
+				</p>
+				<div id="explain"></div>
+
+</div>
+
+<div id="-quasilocal" style="display:none">
+<div class="level1">
+
+				<p>
+					In the DLTS described by Figure 1 (c), the only state with label 0
+					is (s3||t4). Clearly, s3
+					&nsim;
+					t4 because s3 can exhibit action b while t4 cannot. We now look at
+					the state (s2||t2) which is the unique predecessor of (s3||t4).
+					Here it happens that (s3||t4) is the unique successor of (s2||t2)
+					with the ﬁrst component being s3. In other words, the underlying
+					fact is that if the state s2 in L1 makes the transition s2 b −→ s3,
+					the only possibility for t2 in L2 to match up is to make the
+					transition t2 b −→ t4. As we already know that s3 6 t4, we can
+					draw the conclusion that s2 6 t2 either. Therefore, the original
+					label, which is 1, for the state (s2||t2) is not accurate, and we
+					should change it into 0, i.e. paint (s2||t2) red. This observation
+					leads us to let the DLTS in Figure 1 (c) evolve into the one in
+					Figure 2 (a); the latter has one more 0-labelled state than the
+					former. With a similar backward analysis we ﬁnd that the state
+					(s1||t1), the only predecessor of (s2||t2) should be relabelled 0,
+					thus yielding Figure 2 (b). Repeating this procedure, which is
+					convergent because the number of 1-labels is decreasing, and
+					eventually we reach the stable situation in Figure 2 (c). Now
+					(s0||t0) is labelled 0, indicating that s0
+					&nsim;
+					t0.
+
+				</p>
+
+
+				<div id="explain">
+					<img width="500" src="./images/quasi-loacl1.png" alt="quasi-local1" />
+					<img width="500" src="./images/quasi-loacl2.png" alt="quasi-local2" />
+				</div>
+                
+</div>
+</div>
+
+ <!--描述on the fly  example-->
+<div id="-ontheflyeg" style="display:none">
+                <p>
+					We assumed that n<sub>1</sub> as <em>States</em> of <em>S</em>, m<sub>1</sub>
+					as <em>Transitions</em> of <em>S</em>(Similarly, n<sub>2</sub> and
+					m<sub>2</sub> indicate <em>States</em> and <em>Transitions</em> of
+					<em>T</em>).
+				</p>
+
+		   <table width="800" border="1" bordercolor="black" cellspacing="0"
+					style="text-align: center">
+					<caption align="center">On the Fly Algorithm Experimental Data</caption>
+					<tr>
+						<th>Data(states,edges，labels，initial-0)</th>
+						<th>n1</th>
+						<th>m1</th>
+						<th>n2</th>
+						<th>m2</th>
+						<th>On the Fly DFS</th>
+						<th>On the Fly WFS</th>
+					</tr>
+					<tr>
+						<td>vasy_0_1_1(289,1224,3)</td>
+						<td>289</td>
+						<td>1224</td>
+						<td>9</td>
+						<td>20</td>
+						<td>0.020s</td>
+						<td>0.031s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_1_4_1(1183，4464，6)</td>
+						<td>1183</td>
+						<td>4464</td>
+						<td>28</td>
+						<td>59</td>
+						<td>0.025s</td>
+						<td>0.027s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_5_9_1（5486,9676,31)</td>
+						<td>5486</td>
+						<td>9676</td>
+						<td>145</td>
+						<td>284</td>
+						<td>0.054s</td>
+						<td>0.073s</td>
+					</tr>
+					<tr>
+						<td>cwi_3_14_1(3996,14552,2)</td>
+						<td>3996</td>
+						<td>14552</td>
+						<td>62</td>
+						<td>61</td>
+						<td>0.043s</td>
+						<td>0.083s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_25_25_1(25217,25216，25217)</td>
+						<td>25217</td>
+						<td>25216</td>
+						<td>25217</td>
+						<td>25216</td>
+						<td>1.112s</td>
+						<td>1.326s</td>
+
+					</tr>
+					<tr>
+						<td>cwi_1_2_1（1952,2387,26）</td>
+						<td>1952</td>
+						<td>2387</td>
+						<td>1132</td>
+						<td>1432</td>
+						<td>0.109s</td>
+						<td>0.437s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_8_38_1（8921,38424,81）</td>
+						<td>8921</td>
+						<td>38424</td>
+						<td>219</td>
+						<td>838</td>
+						<td>0.100s</td>
+						<td>0.255s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_8_24_1(8879,24411,11)</td>
+						<td>8879</td>
+						<td>24411</td>
+						<td>416</td>
+						<td>1193</td>
+						<td>0.157s</td>
+						<td>1.334s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_10_56_1(10849,56156,12)</td>
+						<td>10849</td>
+						<td>56156</td>
+						<td>2112</td>
+						<td>11372</td>
+						<td>0.216s</td>
+						<td>1.195s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_40_60_1(40006,60007,3)</td>
+						<td>40006</td>
+						<td>60007</td>
+						<td>40006</td>
+						<td>60007</td>
+						<td>5.563s</td>
+						<td>0.193s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_157_297_1(157604,297000,235)</td>
+						<td>157604</td>
+						<td>297000</td>
+						<td>4289</td>
+						<td>13642</td>
+						<td>0.779s</td>
+						<td>387.939s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_69_520_1（69754,520633,135）</td>
+						<td>69754</td>
+						<td>520633</td>
+						<td>69754</td>
+						<td>520633</td>
+						<td>1.697s</td>
+						<td>204.964s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_18_73_1(18746,73043,17)</td>
+						<td>18746</td>
+						<td>73043</td>
+						<td>4087</td>
+						<td>16444</td>
+						<td>8.113s</td>
+						<td>86.282s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_83_325_1(83436,325584，211）</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>10.955s</td>
+						<td>4.23328e+03s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_66_1302_1(66929,1308664,81)</td>
+						<td>66929</td>
+						<td>1302664</td>
+						<td>66929</td>
+						<td>1302664</td>
+						<td>3.056s</td>
+						<td>215.607s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_166_651(166464,651168,211)</td>
+						<td>166464</td>
+						<td>651168</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>45.938s</td>
+						<td>1.44099e+03s</td>
+
+					</tr>
+				</table>
+				<div id="explain">
+					<img width="800" src="./images/table3.png" alt="quasi-localdata" />
+
+				</div>
+    
+</div>
+
+<!-- 描述quasilocal example -->
+
+<div id="-quasilocaleg" style="display:none">
+           <p>
+					We assumed that n<sub>1</sub> as <em>States</em> of <em>S</em>, m<sub>1</sub>
+					as <em>Transitions</em> of <em>S</em>(Similarly, n<sub>2</sub> and
+					m<sub>2</sub> indicate <em>States</em> and <em>Transitions</em> of
+					<em>T</em>).
+				</p>
+
+				<table width="800" border="1" bordercolor="black" cellspacing="0"
+					style="text-align: center">
+					<caption align="center">Quasi-local Algorithm Experimental Data</caption>
+
+					<tr>
+						<th>Data(states,edges，labels，initial-0)</th>
+						<th>n1</th>
+						<th>m1</th>
+						<th>n2</th>
+						<th>m2</th>
+						<th>Quasi-local DFS</th>
+						<th>Quasi-local WFS</th>
+					</tr>
+					<tr>
+						<td>vasy_0_1_1(289,1224,3)</td>
+						<td>289</td>
+						<td>1224</td>
+						<td>9</td>
+						<td>20</td>
+						<td>0.015s</td>
+						<td>0.015s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_1_4_1(1183，4464，6)</td>
+						<td>1183</td>
+						<td>4464</td>
+						<td>28</td>
+						<td>59</td>
+						<td>0.013s</td>
+						<td>0.014s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_5_9_1（5486,9676,31)</td>
+						<td>5486</td>
+						<td>9676</td>
+						<td>145</td>
+						<td>284</td>
+						<td>0.042s</td>
+						<td>0.040s</td>
+					</tr>
+					<tr>
+						<td>cwi_3_14_1(3996,14552,2)</td>
+						<td>3996</td>
+						<td>14552</td>
+						<td>62</td>
+						<td>61</td>
+						<td>0.030s</td>
+						<td>0.030s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_25_25_1(25217,25216，25217)</td>
+						<td>25217</td>
+						<td>25216</td>
+						<td>25217</td>
+						<td>25216</td>
+						<td>0.081s</td>
+						<td>0,085s</td>
+
+					</tr>
+					<tr>
+						<td>cwi_1_2_1（1952,2387,26）</td>
+						<td>1952</td>
+						<td>2387</td>
+						<td>1132</td>
+						<td>1432</td>
+						<td>0.077s</td>
+						<td>0.077s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_8_38_1（8921,38424,81）</td>
+						<td>8921</td>
+						<td>38424</td>
+						<td>219</td>
+						<td>838</td>
+						<td>0.069s</td>
+						<td>0.068s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_8_24_1(8879,24411,11)</td>
+						<td>8879</td>
+						<td>24411</td>
+						<td>416</td>
+						<td>1193</td>
+						<td>0.100s</td>
+						<td>0.095s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_10_56_1(10849,56156,12)</td>
+						<td>10849</td>
+						<td>56156</td>
+						<td>2112</td>
+						<td>11372</td>
+						<td>0.098s</td>
+						<td>0.106s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_40_60_1(40006,60007,3)</td>
+						<td>40006</td>
+						<td>60007</td>
+						<td>40006</td>
+						<td>60007</td>
+						<td>0.110s</td>
+						<td>0.123s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_157_297_1(157604,297000,235)</td>
+						<td>157604</td>
+						<td>297000</td>
+						<td>4289</td>
+						<td>13642</td>
+						<td>0.444s</td>
+						<td>0.474s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_69_520_1（69754,520633,135）</td>
+						<td>69754</td>
+						<td>520633</td>
+						<td>69754</td>
+						<td>520633</td>
+						<td>2.012s</td>
+						<td>1.993s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_18_73_1(18746,73043,17)</td>
+						<td>18746</td>
+						<td>73043</td>
+						<td>4087</td>
+						<td>16444</td>
+						<td>1.390s</td>
+						<td>1.408s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_83_325_1(83436,325584，211）</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>9.362s</td>
+						<td>9.902s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_66_1302_1(66929,1308664,81)</td>
+						<td>66929</td>
+						<td>1302664</td>
+						<td>66929</td>
+						<td>1302664</td>
+						<td>9.861s</td>
+						<td>12.413s</td>
+
+					</tr>
+					<tr>
+						<td>vasy_166_651(166464,651168,211)</td>
+						<td>166464</td>
+						<td>651168</td>
+						<td>83436</td>
+						<td>325584</td>
+						<td>36.494s</td>
+						<td>36.847s</td>
+
+					</tr>
+				</table>
+				<div id="explain">
+					<img width="800" src="./images/table2.png" alt="quasi-localdata" />
+
+				</div>
+              
+
+</div>
+
+
+
+
+</body>
+</html>
+
+

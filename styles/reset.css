@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+body{
+	background:#000 url('../images/beijing1.png');
+}
+body,input{
+	font-size:10pt;
+	font-family:"georgia","times new roman",serif;
+	color:#333;
+}
+body{
+	font:80% "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif;
+	color:#000;
+}
+a{
+	color:#E85205;
+}
+
+/*清浮动*/
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+.fl{float:left;}
+.fr{float:right;}

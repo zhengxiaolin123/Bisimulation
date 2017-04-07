@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>Bisimulation</title>
+<link type="text/css" rel="stylesheet" href="styles/reset.css">
+	<link type="text/css" rel="stylesheet" href="styles/main.css">
+		<meta name="keywords" content="start" />
+		<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript" src="js/ie6Fixpng.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+	<div id="upbg"></div>
+
+
+	<div class="upper">
+
+
+		<div id="header">
+			<div id="headercontent">
+				<h1>Bisimulation</h1>
+				<h2>Bisimulation is a binary relation between state transition
+					systems, associating systems that behave in the same way in the
+					sense that one system simulates the other and vice versa.</h2>
+			</div>
+	
+
+		</div>
+
+
+		<div id="headerpic"></div>
+
+		<div id="menu">
+			<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
+			<ul>
+
+				<li><a href="index.html" class="active" target="_self">Home</a></li>
+				<li><a href="tools.html" target="_self"> Tools</a></li>
+				<li><a href="reference.html" target="_self">Reference</a></li>
+				<li><a href="benchmarks.html" target="_self">Benchmarks</a></li>
+
+			</ul>
+
+
+		</div>
+		<div id="menubottom"></div>
+
+	</div>
+    <div class="dokuwiki">
+		<div id="content">
+    <div class="breadcrumbs">
+
+					<span class="bchead">Trace:</span> <a href="#cadp"> CADP</a> <span
+						class="bcsep">•</span><a href="#bcg">The BCG format</a>
+				</div>
+
+				<div class="divider1"></div>
+				<div id="normalcontent">
+					<div>
+						<h1 class="sectionedit1">
+							<a name="tools" id="tools">Tools</a>
+						</h1>
+						<div class="level1"></div>
+						<div class="level4">
+							<h3 class="sectionedit2">
+								<a name="cadp" id="cadp" href="http://cadp.inria.fr/">CADP</a>
+							</h3>
+							<div class="level3">
+								<p>CADP("Construction and Analysis of Distributed Processes",
+									formerly known as "CAESAR/ALDEBARAN Development Package") is a
+									popular toolbox for the design of asynchronous concurrent
+									systems, such as communication protocols, distributed systems,
+									asynchronous circuits, multiprocessor architectures, web
+									services, etc.</p>
+								<p>CADP offers a wide set of functionalities, ranging from
+									step-by-step simulation to massively parallel model-checking.
+									It is the only toolbox to offer:</p>
+								<ul>
+									<li>Compilers for several input formalisms, e.g.:
+										<ul>
+											<li>High-level descriptions written in various languages,
+												such as LOTOS (ISO International Standard 8807), LNT, FSP,
+												pi-calculus, etc. The CADP toolbox provides compilers
+												(CAESAR, CAESAR.ADT, LNT2LOTOS, FSP2LOTOS, etc.) that
+												translate high-level descriptions into C code to be used for
+												simulation, verification, and testing purposes;</li>
+											<li>Low-level descriptions specified as automata (i.e.,
+												finite state machines) and networks of communicating
+												automata that run in parallel, synchronize, and communicate
+												using process algebra operators or synchronization vectors.
+											</li>
+										</ul>
+									</li>
+									<li>Several equivalence checking tools (minimization and
+										comparisons modulo bisimulation relations), such as BCG_MIN
+										and BISIMULATOR.</li>
+									<li>Several model-checkers for various temporal logic and
+										mu-calculus, such as EVALUATOR and XTL.</li>
+									<li>Several verification algorithms combined together:
+										enumerative verification, on-the-fly verification, symbolic
+										verification using binary decision diagrams, compositional
+										minimization, partial orders, distributed model checking, etc.
+									</li>
+									<li>Plus a bunch of other tools with advanced functionalities
+										such as visual checking, performance evaluation, etc.</li>
+
+								</ul>
+								<p>CADP is designed in a modular way and puts the emphasis on
+									intermediate formats and programming interfaces (such as the
+									BCG and OPEN/CAESAR software environments), which allow the
+									CADP tools to be combined with other tools and adapted to
+									various specification languages.</p>
+							</div>
+
+							<h3 class="sectionedit4">
+								<a name="bcg" id="bcg" href="http://cadp.inria.fr/man/bcg.html">The
+									BCG format</a>
+							</h3>
+							<div class="level3">
+								<p>bcg, BCG - Binary Coded Graphs: binary file format for
+									labelled transition systems</p>
+								<p>The acronym BCG stands for Binary Coded Graphs. It refers
+									both to a format and a software environment. The BCG format is
+									a computer representation for labelled transition systems,
+									Kripke structures, and, more generally, state/transition models
+									(hereafter called graphs) which are generated from higher-level
+									models of concurrent systems. Compared to other existing
+									formats with similar purposes, the BCG format combines several
+									advantages:</p>
+								<p>
+									<ul>
+										<li>The BCG format is independent from any particular
+											model-based verification technique; it can be used either by
+											tools performing graph comparison and reduction modulo
+											equivalence relations, or by tools checking properties
+											expressed in temporal logics. It can also be used in other
+											contexts: graph exploration, graph drawing, etc.</li>
+										<li>The BCG format is independent from the language used to
+											describe the concurrent system to be analyzed. It was
+											designed so as to allow the representation of graphs
+											generated from various concurrent languages.</li>
+										<li>The BCG format provides sophisticated mechanisms to keep
+											track of source-level information. This is especially useful,
+											since it is possible to establish a connection between the
+											behaviour of a BCG graph and the source program from which
+											the BCG graph was generated.</li>
+										<li>The BCG format uses a binary representation of the LTS
+											together with ad-hoc compression algorihms, leading to very
+											compact files. Graphs with millions of states and transitions
+											can be represented using only a few megabytes of disk space.
+										</li>
+
+									</ul>
+
+								</p>
+								<p>Moreover, the BCG format is supported by an efficient and
+									extensive software implementation, the BCG environment.</p>
+
+								<p>
+									In the BCG environment, the programs dealing with graphs
+									encoded in the BCG format are called ``application tools''.
+									These programs can be either binary programs or shell-scripts.<a
+										href="http://cadp.inria.fr/man/bcg.html#sect2">Application
+										Tools</a>
+								</p>
+							</div>
+						</div>
+
+					</div>
+     
+    </div>
+    </div>
+    
+  	<div id="footer">
+					<div class="left"></div>
+					<div class="right">
+						<div class="license">
+						   <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                           <p></p>
+                             <a href="http://www.ecnu.edu.cn/" rel="license" class="urlextern">ECNU</a> reserves the right of final explanation and revision for the web.
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="no">
+				<img src="#" width="2" height="1" alt="" />
+			</div>
+    
+    
+</body>
+</html>
